@@ -1,0 +1,47 @@
+@use "./../../styles/abstract/colors" as colors;
+.notification {
+  position: fixed;
+  z-index: 99;
+  height: fit-content;
+  width: 50%;
+  color: colors.$secondary-100;
+  &.top-left {
+    left: 10%;
+    top: 10%;
+  }
+  &.bottom-right {
+    right: 10%;
+    bottom: 10%;
+  }
+  &.bottom-left {
+    left: 10%;
+    bottom: 10%;
+  }
+  &.top-right {
+    right: 10%;
+    top: 10%;
+  }
+  &.center-top {
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.center-bottom {
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.blocker {
+  position: fixed;
+  z-index: 101;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}

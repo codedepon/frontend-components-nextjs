@@ -1,0 +1,53 @@
+@use "./../abstract/colors";
+@use "./../abstract/breakpoints";
+
+.body-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  > * {
+    margin-top: 7.125em;
+  }
+}
+
+.get-answer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 4em;
+}
+.call-to-answer {
+  color: colors.$secondary-100;
+  text-align: center;
+  font-size: min(4.5vw, 1.4rem);
+  font-weight: 300;
+  margin-bottom: 0.4em;
+  white-space: nowrap;
+}
+
+.side-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  > * {
+    margin-top: 7.125em;
+  }
+}
+
+.constraint-container {
+  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+  .question {
+    margin-bottom: 1.2em;
+  }
+}

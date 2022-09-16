@@ -1,0 +1,13 @@
+@use "./../abstract/colors" as colors;
+
+input {
+  background-color: colors.$secondary-900;
+  border: none;
+  font-size: 1rem;
+  color: colors.$secondary-200;
+  padding: 0.5em 0.5em 0.5em 1em;
+  border-radius: 1px;
+  &:focus {
+    outline: none;
+  }
+}

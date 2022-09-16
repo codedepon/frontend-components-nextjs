@@ -1,0 +1,52 @@
+@use "./../../styles/abstract/colors" as colors;
+$animation-speed: 300ms;
+%remove-borders {
+  &:hover {
+    // border: none;
+    outline: none;
+  }
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+.checkbox {
+  @extend %remove-borders;
+  background-color: colors.$secondary-800;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.innerBox {
+  @extend %remove-borders;
+
+  position: relative;
+  border: none;
+  background-color: colors.$secondary-900;
+  width: 80%;
+  height: 80%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.checkmark {
+  height: 110%;
+  top: -20%;
+  left: -10%;
+  position: absolute;
+  transition: all $animation-speed ease;
+}
+
+.checkmarkEnter {
+  @extend .checkmark;
+  // opacity: 0;
+  transform: rotate(3turn);
+}
+
+.checkmarkEnterActive {
+  @extend .checkmark;
+  transform: rotate(0turn);
+  opacity: 1;
+}

@@ -1,0 +1,127 @@
+@use "./../abstract/colors";
+@use "./../abstract/breakpoints";
+@use "./../base/base";
+
+nav {
+  box-shadow: 0px 15px 12px 0px rgba(0, 0, 0, 0.2),
+    0px 19px 38px 0px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  overflow: hidden;
+  height: 3.125em;
+  background-color: colors.$secondary-800;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  input {
+    display: none;
+  }
+  @include breakpoints.tablet {
+    .search-container {
+      display: flex;
+    }
+
+    input {
+      display: block;
+    }
+  }
+  @include breakpoints.desktop {
+    .search-container {
+      display: flex;
+    }
+    div {
+      align-items: center;
+      flex: 1;
+    }
+    input {
+      display: block;
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-left: 20%;
+  height: 100%;
+
+  *:not(div):not(.search) {
+    display: none;
+  }
+
+  @include breakpoints.tablet {
+    .search {
+      display: none;
+    }
+    margin-left: 2em;
+  }
+
+  @include breakpoints.desktop {
+    margin-left: 2em;
+    *:not(div):not(.search) {
+      display: block;
+    }
+    :last-child {
+      margin-left: 2em;
+    }
+    .search {
+      display: none;
+    }
+    * {
+      cursor: pointer;
+    }
+  }
+  p {
+    color: colors.$primary-500;
+    text-decoration: underline;
+  }
+  a {
+    margin-left: 2em;
+    position: relative;
+  }
+}
+
+.logo {
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.logo-container,
+.search-container {
+  @extend %flex-vh-centered;
+}
+
+.logo-container {
+  justify-content: flex-end;
+}
+
+.user {
+  cursor: pointer;
+  height: 2.1em;
+  width: 2.1em;
+  min-height: 2.1em;
+  max-width: 2.1em;
+  max-height: 2.1em;
+  min-height: 2.1em;
+  border-radius: 50%;
+  border: colors.$primary-500 2px solid;
+  background-color: #a9b0bd;
+  margin-left: 1em;
+}
+
+.notification-number {
+  width: 1em;
+  height: 1em;
+  font-weight: bold;
+  color: colors.$primary-500;
+  text-align: center;
+  background-color: colors.$secondary-900;
+  float: right;
+  padding: 3px;
+  position: absolute;
+  top: -2px;
+  right: -7px;
+}

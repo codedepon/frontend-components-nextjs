@@ -1,0 +1,76 @@
+@use "./../../styles/abstract/colors" as colors;
+@use "./../../styles/base/base" as base;
+$font-size: 1.2rem;
+$animation-speed: 300ms;
+.title {
+  padding: 0.5em;
+  &.blocked {
+    cursor: no-drop;
+  }
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+  display: flex;
+  border: none;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $font-size;
+  background-color: colors.$secondary-900;
+  color: colors.$secondary-200;
+  &:hover {
+    filter: brightness(1.2);
+  }
+  .arrow {
+    height: $font-size;
+  }
+}
+
+%menu {
+  z-index: 1;
+  background-color: colors.$secondary-900;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+
+  li {
+    background-color: inherit;
+    padding: 0.7em;
+    color: colors.$secondary-100;
+    &:hover {
+      filter: brightness(1.2);
+      cursor: pointer;
+    }
+  }
+  .selected {
+    filter: brightness(1.2);
+  }
+}
+.menu {
+  @extend %menu;
+}
+.menuEnter {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY(-10%);
+}
+.menuEnterActive {
+  @extend %menu;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all $animation-speed ease;
+}
+.menuExit {
+  @extend %menu;
+  opacity: 1;
+}
+.menuExitActive {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: all $animation-speed ease;
+}
+.label {
+  color: colors.$secondary-200;
+  padding: 0.5em;
+}

@@ -1,0 +1,14 @@
+@use "./../../styles/abstract/colors" as colors;
+.inputBox {
+  color: colors.$secondary-200;
+  border: colors.$primary-500 2px solid;
+  border-radius: 1px;
+  height: 2em;
+  background-color: colors.$secondary-900;
+  font-size: 1rem;
+  padding: 0 0 0 1em;
+  &:focus {
+    outline: none;
+    border: transparent 2px solid;
+  }
+}

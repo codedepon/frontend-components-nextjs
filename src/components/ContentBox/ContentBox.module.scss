@@ -1,0 +1,6 @@
+@use "./../../styles/base/base" as base;
+@use "./../../styles/abstract/colors" as colors;
+.contentBox {
+  @include base.default-box;
+  background-color: colors.$secondary-800;
+}

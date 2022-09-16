@@ -1,0 +1,197 @@
+@use "./../../styles/abstract/colors" as colors;
+@use "./../../styles/base/base" as base;
+$title-font-size: 1.2rem;
+$font-size: 1rem;
+$animation-speed: 300ms;
+.title {
+  padding: 0.5em;
+
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+  display: inline-flex;
+  border: none;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $title-font-size;
+  background-color: colors.$secondary-800;
+  color: colors.$secondary-200;
+  &:hover {
+    filter: brightness(1.2);
+  }
+  .arrow {
+    height: $title-font-size;
+  }
+}
+
+.titleLink {
+  padding: 0.35em 3em 0.5em 0.5em;
+  max-width: fit-content;
+  &:hover {
+    cursor: pointer;
+  }
+  display: inline;
+  text-decoration: none;
+  font-size: $title-font-size;
+  background-color: colors.$secondary-800;
+  color: colors.$secondary-200;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+%menu {
+  z-index: 1;
+  background-color: colors.$secondary-800;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2em;
+  button {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    font-size: $font-size;
+    padding: 0;
+    color: colors.$secondary-200;
+    &:hover {
+      cursor: pointer;
+    }
+    .submenuArrow {
+      margin-left: auto;
+      vertical-align: center;
+      height: $font-size;
+    }
+  }
+
+  li {
+    // padding: 1em;
+    color: colors.$secondary-200;
+    &:hover {
+      background-color: inherit;
+      filter: brightness(1.2);
+      cursor: pointer;
+    }
+    > * {
+      padding: 1em;
+    }
+  }
+}
+.linkTest {
+  display: inline-block;
+  width: 100%;
+  // height: 100%;
+  font-size: $font-size;
+  color: colors.$secondary-200;
+  padding: 0.9rem;
+}
+.menu {
+  @extend %menu;
+}
+
+$offsetDown: -50%;
+$offsetRight: 50%;
+// DOWN
+.menuExitdown,
+.menuExitup,
+.menuExitleft {
+  @extend %menu;
+  opacity: 1;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+.menuExitActivedown {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY($offsetDown);
+  transition: all $animation-speed ease;
+}
+
+.menuEnterdown {
+  pointer-events: none;
+  @extend %menu;
+  opacity: 0;
+  transform: translateY($offsetDown);
+}
+
+.menuEnterActivedown {
+  @extend %menu;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all $animation-speed ease;
+}
+
+// UP
+$offsetUp: +50%;
+
+.menuExitActiveup {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY($offsetUp);
+  transition: all $animation-speed ease;
+}
+
+.menuEnterup {
+  pointer-events: none;
+  @extend %menu;
+  opacity: 0;
+  transform: translateY($offsetUp);
+}
+
+.menuEnterActiveup {
+  @extend %menu;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all $animation-speed ease;
+}
+
+// LEFT
+$offsetLeft: +50%;
+
+.menuExitActiveleft {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY($offsetLeft);
+  transition: all $animation-speed ease;
+}
+
+.menuEnterleft {
+  pointer-events: none;
+  @extend %menu;
+  opacity: 0;
+  transform: translateX($offsetLeft);
+}
+
+.menuEnterActiveleft {
+  @extend %menu;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all $animation-speed ease;
+}
+
+// RIGHT
+$offsetRight: -50%;
+.menuExitActiveright {
+  @extend %menu;
+  opacity: 0;
+  transform: translateY(-$offsetRight);
+  transition: all $animation-speed ease;
+}
+
+.menuEnterright {
+  pointer-events: none;
+  @extend %menu;
+  opacity: 0;
+  transform: translateX($offsetRight);
+}
+
+.menuEnterActiveright {
+  @extend %menu;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all $animation-speed ease;
+}

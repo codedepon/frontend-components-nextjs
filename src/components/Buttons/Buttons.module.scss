@@ -1,0 +1,48 @@
+@use "./../../styles/abstract/colors" as colors;
+
+.primary-500 {
+  background-color: colors.$primary-500;
+  &:hover {
+    filter: brightness(1.05);
+  }
+}
+.secondary-900 {
+  background-color: colors.$secondary-900;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+.secondary-800 {
+  background-color: colors.$secondary-800;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+%btn {
+  max-width: fit-content;
+  color: colors.$secondary-100;
+  border: none;
+  font-weight: 400;
+  &:active {
+    transform: scale(1.05);
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.smallButton {
+  padding: 0.25em 1em 0.25em 1em;
+  @extend %btn;
+  font-size: 1rem;
+}
+.mediumButton {
+  padding: 0.35em 1.4em 0.35em 1.4em;
+  @extend %btn;
+  font-size: 1.5rem;
+}
+.largeButton {
+  @extend %btn;
+  padding: 0.5em 2em 0.5em 2em;
+  font-size: 2rem;
+  font-weight: 600;
+}
