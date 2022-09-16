@@ -6,7 +6,7 @@ import useClickOutside from "../../hooks/use-click-outside";
 import { ArrowIcon } from "../Icons/Icons";
 import useParentProps from "../../hooks/use-parent-props";
 import { CSSTransition } from "react-transition-group";
-import { Direction } from "../../types/Utilities";
+import { Direction } from "../../interfaces/Utilities";
 
 interface DropDownInputProps {
   label: string;

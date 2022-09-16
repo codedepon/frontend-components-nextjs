@@ -6,8 +6,12 @@ import { ArrowIcon } from "../Icons/Icons";
 import useParentProps from "../../hooks/use-parent-props";
 import { CSSTransition } from "react-transition-group";
 import Link from "../Link/Link";
-import { MenuItemProp, Submenu, RedirectLink } from "../../types/MenuTypes";
-import { Direction } from "../../types/Utilities";
+import {
+  MenuItemProp,
+  Submenu,
+  RedirectLink,
+} from "../../interfaces/MenuTypes";
+import { Direction } from "../../interfaces/Utilities";
 
 const getArrowDirection = function (
   menuPosition: Direction,

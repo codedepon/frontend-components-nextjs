@@ -1,6 +1,10 @@
 import React from "react";
-import { MenuItemProp, RedirectLink, Submenu } from "../../types/MenuTypes";
-import { Direction } from "../../types/Utilities";
+import {
+  MenuItemProp,
+  RedirectLink,
+  Submenu,
+} from "../../interfaces/MenuTypes";
+import { Direction } from "../../interfaces/Utilities";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
 import styles from "./VerticalMenu.module.scss";
 interface VerticalMenuProps {
