@@ -1,25 +1,16 @@
 import React from "react";
 import { AnchorHTMLAttributes } from "react";
-function Link({
+import { Link } from "react-router-dom";
+function Link1({
   href,
   className,
   children,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
-  try {
-    const NextLink = require("next/link");
-
-    return (
-      <NextLink href={href!} {...props}>
-        <a className={className}>{children}</a>
-      </NextLink>
-    );
-  } catch {
-    return (
-      <a {...props} href={href} className={className}>
-        {children}
-      </a>
-    );
-  }
+  return (
+    <Link to={href!} {...props}>
+      <a className={className}>{children}</a>
+    </Link>
+  );
 }
-export default Link;
+export default Link1;
