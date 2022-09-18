@@ -28,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
   "dependencies": {
     "react-transition-group": "^4.4.5"
   }
