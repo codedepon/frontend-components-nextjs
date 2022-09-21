@@ -15,8 +15,7 @@
     "react-router-dom": "^6.4.0"
   },
   "author": "Vojin Milovic",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
   "devDependencies": {
     "@types/react": "^18.0.20",
     "@types/react-transition-group": "^4.4.5",
