@@ -1,7 +1,7 @@
 import React from "react";
 import { Children, ReactNode } from "react";
 import ContentBox from "../ContentBox/ContentBox";
-import styles from "./Table.module.scss";
+import styles from "./Table.module.css";
 
 interface TableProps {
   children: ReactNode;

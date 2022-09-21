@@ -6,7 +6,7 @@ import {
 } from "../../interfaces/MenuTypes";
 import { Direction } from "../../interfaces/Utilities";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
-import styles from "./VerticalMenu.module.scss";
+import styles from "./VerticalMenu.module.css";
 interface VerticalMenuProps {
   menuItems: MenuItemProp[];
   className?: string;

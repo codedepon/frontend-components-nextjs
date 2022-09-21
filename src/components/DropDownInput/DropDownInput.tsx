@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./DropDownInput.module.scss";
+import styles from "./DropDownInput.module.css";
 import { useState } from "react";
 import useClickOutside from "../../hooks/use-click-outside";
 import { ArrowIcon } from "../Icons/Icons";

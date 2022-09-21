@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
-import styles from "./Buttons.module.scss";
+import styles from "./Buttons.module.css";
 
 type ColorScheme = { color: "primary-500" | "secondary-800" | "secondary-900" };
 
