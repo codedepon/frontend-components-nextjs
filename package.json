@@ -5,7 +5,8 @@
   "scripts": {
     "rollup": "rollup -c",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && tsc && cp package.json README.md ./dist"
+    "build": "npm run clean && tsc && cp package.json README.md ./dist",
+    "sass-prod": "sass --no-source-map --style=compressed src/"
   },
   "peerDependencies": {
     "next": ">=12.2.5",
