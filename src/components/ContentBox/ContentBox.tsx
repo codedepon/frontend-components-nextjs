@@ -1,6 +1,6 @@
 import React from "react";
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
-import styles from "./ContentBox.module.css";
+import styles from "./ContentBox.module.scss";
 
 function ContentBox({
   children,

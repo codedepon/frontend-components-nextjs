@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactNode } from "react";
 import ContentBox from "../ContentBox/ContentBox";
-import styles from "./SideNotification.module.css";
+import styles from "./SideNotification.module.scss";
 
 interface SideNotificationProps {
   children: ReactNode;

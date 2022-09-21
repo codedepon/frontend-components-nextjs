@@ -1,6 +1,6 @@
 import React from "react";
 import { Direction } from "../../interfaces/Utilities";
-import styles from "./Icons.module.css";
+import styles from "./Icons.module.scss";
 interface IconProps {
   className?: string;
   color?: string;
