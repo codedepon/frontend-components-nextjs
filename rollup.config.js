@@ -15,11 +15,14 @@ export default {
     },
   ],
   plugins: [
+    // Compiles sass and bundles it with js
     postcss({
       extract: false,
     }),
+    // Translates ts code into js
     typescript({ objectHashIgnoreUnknownHack: false }),
   ],
+  // Packages left out of compilation
   external: [
     "react",
     "react-dom",
