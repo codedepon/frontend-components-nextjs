@@ -7,9 +7,10 @@ import ContentBox from "../ContentBox/ContentBox";
 interface CheckBoxProps {
   checked?: boolean;
   size?: string;
+  className?: string;
   onChange?: () => void;
 }
-function CheckBox({ checked, size, onChange }: CheckBoxProps) {
+function CheckBox({ checked, size, onChange, className }: CheckBoxProps) {
   const [isChecked, setIsChecked] = useState(Boolean(checked));
   const toggleChecked = () => {
     if (onChange) onChange();
@@ -21,7 +22,7 @@ function CheckBox({ checked, size, onChange }: CheckBoxProps) {
       onClick={toggleChecked}
       // @ts-ignore
       size={size || "2em"}
-      className={styles.checkbox}
+      className={`${styles.checkbox} ${className || ""}`}
     >
       <button className={styles.innerBox}>
         {isChecked && (
