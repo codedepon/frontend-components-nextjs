@@ -13,8 +13,9 @@ $animation-speed: 300ms;
 .checkbox {
   @extend %remove-borders;
   background-color: colors.$secondary-800;
-  width: 2em;
-  height: 2em;
+  min-width: attr(size);
+  min-height: attr(size);
+
   display: flex;
   justify-content: center;
   align-items: center;
