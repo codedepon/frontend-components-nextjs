@@ -7,10 +7,14 @@ import ContentBox from "../ContentBox/ContentBox";
 interface CheckBoxProps {
   checked?: boolean;
   size?: string;
+  onChange?: () => void;
 }
-function CheckBox({ checked, size }: CheckBoxProps) {
+function CheckBox({ checked, size, onChange }: CheckBoxProps) {
   const [isChecked, setIsChecked] = useState(Boolean(checked));
-  const toggleChecked = () => setIsChecked(!isChecked);
+  const toggleChecked = () => {
+    if (onChange) onChange();
+    setIsChecked(!isChecked);
+  };
   const checkmarkRef = useRef(null);
   return (
     <ContentBox
