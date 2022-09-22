@@ -1,6 +1,6 @@
 {
   "name": "codedepo-themed-components-react",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "ISC",
   "scripts": {
     "clean": "rm -rf ./dist",
