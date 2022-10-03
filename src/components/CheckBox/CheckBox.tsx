@@ -1,33 +1,25 @@
-import React from "react";
-import { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { CheckmarkIcon } from "../Icons/Icons";
 import styles from "./CheckBox.module.scss";
 import ContentBox from "../ContentBox/ContentBox";
 interface CheckBoxProps {
   checked?: boolean;
-  size?: string;
   className?: string;
+  size?: number;
   onChange?: () => void;
 }
 function CheckBox({ checked, size, onChange, className }: CheckBoxProps) {
-  const [isChecked, setIsChecked] = useState(Boolean(checked));
-  const toggleChecked = () => {
-    if (onChange) onChange();
-    setIsChecked(!isChecked);
-  };
-  const checkmarkRef = useRef(null);
   return (
     <ContentBox
-      onClick={toggleChecked}
-      // @ts-ignore
-      size={size || "2em"}
+      style={{
+        width: `${size?.toString() || "2"}em`,
+        height: `${size || 2}em`,
+      }}
       className={`${styles.checkbox} ${className || ""}`}
     >
-      <button className={styles.innerBox}>
-        {isChecked && (
-          <CheckmarkIcon ref={checkmarkRef} className={styles.checkmark} />
-        )}
+      <button className={styles.innerBox} onClick={onChange}>
+        {Boolean(checked) && <CheckmarkIcon className={styles.checkmark} />}
       </button>
     </ContentBox>
   );

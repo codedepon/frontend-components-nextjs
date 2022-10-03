@@ -1,16 +1,16 @@
 import React from "react";
 import { AnchorHTMLAttributes } from "react";
-import { Link } from "react-router-dom";
-function Link1({
+import { Link as ReactLink } from "react-router-dom";
+function Link({
   href,
   className,
   children,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <Link to={href!} {...props}>
+    <ReactLink to={href!} {...props}>
       <a className={className}>{children}</a>
-    </Link>
+    </ReactLink>
   );
 }
-export default Link1;
+export default Link;

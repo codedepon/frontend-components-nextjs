@@ -17,6 +17,9 @@ export {
   SortIcon,
   StarIcon,
   UserIcon,
+  PlusIcon,
+  ImageIcon,
+  OptionsIcon,
 } from "./components/Icons/Icons";
 export { default as LargeInput } from "./components/LargeInput/LargeInput";
 export { default as Link } from "./components/Link/Link";
