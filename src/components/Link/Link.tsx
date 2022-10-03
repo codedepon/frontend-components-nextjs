@@ -1,6 +1,6 @@
 import React from "react";
 import { AnchorHTMLAttributes } from "react";
-import { Link as ReactLink } from "react-router-dom";
+import { default as NextLink } from "next/link";
 function Link({
   href,
   className,
@@ -8,9 +8,9 @@ function Link({
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <ReactLink to={href!} {...props}>
+    <NextLink href={href!} {...props}>
       <a className={className}>{children}</a>
-    </ReactLink>
+    </NextLink>
   );
 }
 export default Link;

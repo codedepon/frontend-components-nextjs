@@ -11,9 +11,8 @@
   },
   "peerDependencies": {
     "react-dom": ">=18.0",
-    "react-router": "^6.4.0",
-    "react-router-dom": "^6.4.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "next": "^12.3.1"
   },
   "author": "Vojin Milovic",
   "main": "dist/index.js",
@@ -23,6 +22,7 @@
     "@types/react-transition-group": "^4.4.5",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "next": "^12.3.1",
     "rollup": "^2.79.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.34.0",
