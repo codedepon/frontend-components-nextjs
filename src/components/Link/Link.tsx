@@ -8,7 +8,7 @@ function Link({
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <NextLink href={href!} {...props}>
+    <NextLink className={className} href={href!} {...props}>
       <a className={className}>{children}</a>
     </NextLink>
   );

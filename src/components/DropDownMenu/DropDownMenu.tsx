@@ -34,12 +34,20 @@ const getArrowDirection = function (
 };
 
 interface DropDownMenuProps {
-  label?: string;
   menuItems: MenuItemProp;
   menuPosition?: Direction;
+  menuContainerClassName?: string;
+  menuTitleClassName?: string;
+  menuItemClassName?: string;
 }
 
-function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
+function DropDownMenu({
+  menuItems,
+  menuPosition,
+  menuContainerClassName,
+  menuTitleClassName,
+  menuItemClassName,
+}: DropDownMenuProps) {
   menuPosition = menuPosition ? menuPosition : Direction.down;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<MenuItemProp | Submenu>(
@@ -56,27 +64,24 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
     switch (menuPosition) {
       case Direction.down:
         return {
-          top: `${parentProps.top + 30}px`,
-          left: `${parentProps.left}px`,
+          top: "105%",
+          left: 0,
         };
 
       case Direction.right:
         return {
-          top: `${parentProps.top - 16}px`,
-          left: `${parentProps.right + 5}px`,
+          top: 0,
+          left: "105%",
         };
       case Direction.left:
         return {
-          top: `${parentProps.top - 16}px`,
-          left: `${parentProps.left - parentProps.width - 5}px`,
+          top: 0,
+          right: "105%",
         };
       case Direction.up:
-        const rowHeight = 60;
         return {
-          top: `${
-            parentProps.top - (activeMenu.submenu?.length || 0) * rowHeight
-          }px`,
-          left: `${parentProps.left}px`,
+          bottom: "105%",
+          left: 0,
         };
     }
     return {};
@@ -87,16 +92,20 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
     exit: styles[`menuExit${menuPosition}`],
     exitActive: styles[`menuExitActive${menuPosition}`],
   };
+  console.log("classes", menuTitleClassName);
   return (
-    <>
+    <div className={`${styles.container} ${menuContainerClassName || ""}`}>
       {menuItems.submenu ? (
         <>
-          {label && <label>{label}</label>}
           <button
-            style={{ width: `${menuItems.title.length * 1.6}ch` }}
+            style={{
+              ...(!menuTitleClassName && {
+                width: `${menuItems.title.length * 1.3}ch`,
+              }),
+            }}
             aria-expanded={isOpen}
             ref={parentRef}
-            className={styles.title}
+            className={`${styles.title} ${menuTitleClassName || ""}`}
             onClick={handleMenuToggle}
           >
             <span>{activeMenu.title}</span>
@@ -106,13 +115,18 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
       ) : (
         <Link
           href={activeMenu.url}
-          className={styles.titleLink}
-          style={{ maxWidth: `${menuItems.title.length * 1.6}ch` }}
+          className={`${styles.titleLink} ${menuTitleClassName || ""}`}
+          style={{
+            ...(!menuTitleClassName && {
+              maxWidth: `${menuItems.title.length * 1.3}ch`,
+            }),
+          }}
         >
           {activeMenu.title}
         </Link>
       )}
       <CSSTransition
+        ref={null}
         nodeRef={menuRef}
         in={isOpen}
         timeout={300}
@@ -128,6 +142,7 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
           style={{
             maxWidth: "fit-content",
             minWidth: `${parentProps.width}px`,
+            // minWidth: "100%",
 
             ...getMenuPosition(),
           }}
@@ -135,6 +150,7 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
           {activeMenu.submenu?.map((item, index) => {
             return (
               <MenuItems
+                className={menuItemClassName}
                 setMenu={(menu) => {
                   setIsOpen(false);
                   setActiveMenu(menu);
@@ -148,20 +164,22 @@ function DropDownMenu({ menuItems, label, menuPosition }: DropDownMenuProps) {
           })}
         </ul>
       </CSSTransition>
-    </>
+    </div>
   );
 }
 export function MenuItems({
   item,
   setMenu,
   arrowPosition,
+  className,
 }: {
+  className?: string;
   setMenu?: (menu: MenuItemProp | Submenu) => void;
   item: Submenu | RedirectLink;
   arrowPosition: Direction;
 }) {
   return (
-    <li>
+    <li className={className || ""}>
       {item.hasOwnProperty("submenu") ? (
         <button
           type="button"

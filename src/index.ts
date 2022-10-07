@@ -19,6 +19,7 @@ export {
   UserIcon,
   PlusIcon,
   ImageIcon,
+  NavIcon,
   OptionsIcon,
 } from "./components/Icons/Icons";
 export { default as LargeInput } from "./components/LargeInput/LargeInput";

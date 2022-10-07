@@ -1,10 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./NavBar.module.scss";
-const NavBar = ({ children }: { children?: React.ReactNode }): JSX.Element => (
-  <>
-    <nav className={styles.NavBar}>{children}</nav>
-    <div className={styles.spacer}></div>
-  </>
+interface NavBarProps {
+  children?: ReactNode;
+  className?: string;
+}
+
+const NavBar = ({ children, className }: NavBarProps): JSX.Element => (
+  <nav className={`${styles.NavBar} ${className || ""}`}>{children}</nav>
 );
 
 export default NavBar;

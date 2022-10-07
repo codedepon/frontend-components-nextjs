@@ -1,12 +1,14 @@
 @use "./../../styles/abstract/colors" as colors;
 @use "./../../styles/base/base" as base;
-$title-font-size: 1.2rem;
+
 $font-size: 1rem;
+
+$title-font-size: calc(1.2 * $font-size);
 $animation-speed: 300ms;
 .title {
+  @include base.default-box;
   padding: 0.5em;
-
-  position: relative;
+  // height: 3em;
   &:hover {
     cursor: pointer;
   }
@@ -26,8 +28,8 @@ $animation-speed: 300ms;
 }
 
 .titleLink {
-  padding: 0.35em 3em 0.5em 0.5em;
-  max-width: fit-content;
+  padding: inherit;
+  // max-width: fit-content;
   &:hover {
     cursor: pointer;
   }
@@ -75,20 +77,24 @@ $animation-speed: 300ms;
       filter: brightness(1.2);
       cursor: pointer;
     }
-    > * {
-      padding: 1em;
-    }
+    text-decoration: none;
+    // > * {
+    //   padding: 1em;
+    // }
   }
 }
 .linkTest {
   display: inline-block;
   width: 100%;
+  text-decoration: none;
   // height: 100%;
   font-size: $font-size;
   color: colors.$secondary-200;
-  padding: 0.9rem;
+  padding: 0.6em;
 }
 .menu {
+  padding: 0;
+  margin: 0;
   @extend %menu;
 }
 
@@ -194,4 +200,11 @@ $offsetRight: -50%;
   opacity: 1;
   transform: translateX(0%);
   transition: all $animation-speed ease;
+}
+.container {
+  height: fit-content;
+  // width: fit-content;
+  padding: 0;
+  display: inline-flex;
+  position: relative;
 }

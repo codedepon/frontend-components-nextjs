@@ -40,3 +40,16 @@
     )
     1;
 }
+@mixin default-hover-effect {
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+  }
+}
+@mixin default-active-effect {
+  transition: transform 0.3s ease-in-out;
+  &:active {
+    transform: scale(1.4);
+  }
+}
+$standard-border-radius: 2px;
