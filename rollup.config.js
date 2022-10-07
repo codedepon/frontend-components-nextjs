@@ -23,5 +23,5 @@ export default {
     typescript({ objectHashIgnoreUnknownHack: false }),
   ],
   // Packages left out of compilation
-  external: ["react", "react-dom", "react-transition-group"],
+  external: ["react", "react-dom", "react-transition-group", "next/link"],
 };

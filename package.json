@@ -6,7 +6,7 @@
     "clean": "rm -rf ./dist",
     "ts:build": "npm run clean && tsc && cp package.json README.md ./dist",
     "sass-prod": "sass --no-source-map --style=compressed src/",
-    "build": "rollup -c",
+    "build": "rollup -c && cp -r ./src/styles/ ./dist",
     "start": "rollup -c -w"
   },
   "peerDependencies": {
